@@ -6,6 +6,7 @@
 
 from soldier_manager import add_soldier, remove_soldier, get_all_soldiers
 from duty_manager import add_duty, update_duty_status, get_soldier_duties
+from data import load_data, save_data
 
 def handle_add_soldier():
     try:
@@ -79,6 +80,9 @@ def handle_get_soldier_duties():
         print("Error: Invalid ID format. Must be a number.")
 
 def main():
+    # טעינת נתונים קיימים כשהתוכנית עולה
+    load_data()
+    
     while True:
         print()
         print("=== מערכת לניהול תורנויות חיילים ===")
@@ -105,6 +109,10 @@ def main():
         elif choice == '6':
             handle_get_soldier_duties()
         elif choice == '7':
+            save_choice = input("לשמור שינויים? (yes/no): ").strip().lower()
+            if save_choice in ['yes', 'y']:
+                save_data()
+                print("הנתונים נשמרו בהצלחה.")
             print("יוצא מהמערכת... להתראות!")
             break
         else:
