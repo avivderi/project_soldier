@@ -22,3 +22,4 @@ def save_data():
     """שומרת את הנתונים הנוכחיים לקובץ JSON."""
     with open(DATA_FILE, 'w', encoding='utf-8') as file:
         json.dump(soldiers_db, file, ensure_ascii=False, indent=4)
+        
