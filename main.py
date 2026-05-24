@@ -112,3 +112,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# git_ripo
+# https://github.com/avivderi/project_soldier.git
