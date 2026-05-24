@@ -9,6 +9,10 @@ from duty_manager import add_duty, update_duty_status, get_soldier_duties
 from data import load_data, save_data
 
 def handle_add_soldier():
+    '''
+    מוסיפה חייל חדש לרשימה, במידה והוא לא קיים... 
+    (מפעילה פונקציות בדיקה)
+    '''
     try:
         soldier_id = int(input("הכנס מספר אישי: "))
         name = input("הכנס שם: ")
@@ -18,6 +22,10 @@ def handle_add_soldier():
         print(f"Error: {e}")
 
 def handle_remove_soldier():
+    '''
+    מסירה חייל מהמערכת במידה והוא קיים... 
+    (משתמשת בפונקציות בדיקה)
+    '''
     try:
         soldier_id = int(input("הכנס מספר אישי להסרה: "))
         remove_soldier(soldier_id)
@@ -28,6 +36,10 @@ def handle_remove_soldier():
         print("Error: Invalid ID format. Must be a number.")
 
 def handle_get_all_soldiers():
+    '''
+    צפייה ברשימת כל החיילים,
+    מתוך הרשימה
+    '''
     soldiers = get_all_soldiers()
     if not soldiers:
         print("אין חיילים רשומים במערכת.")
@@ -39,6 +51,10 @@ def handle_get_all_soldiers():
         print(f"מספר אישי: {s['id']}, שם: {s['name']}")
 
 def handle_add_duty():
+    '''
+    מוסיפה תורנות לחייל קיים,
+    במידה ואין לא תורנות קיימת
+    '''
     try:
         soldier_id = int(input("הכנס מספר אישי של החייל: "))
         duty_name = input("הכנס שם תורנות (למשל 'שמירה'): ")
@@ -51,6 +67,9 @@ def handle_add_duty():
         print("Error: Invalid input format.")
 
 def handle_update_duty_status():
+    '''
+    פונקציה לעדכון סטטוס תורנות לחייל
+    '''
     try:
         soldier_id = int(input("הכנס מספר אישי של החייל: "))
         duty_name = input("הכנס את שם התורנות לעדכון: ")
@@ -63,6 +82,9 @@ def handle_update_duty_status():
         print("Error: Invalid input format.")
 
 def handle_get_soldier_duties():
+    '''
+    מציגה את כל התורנות לפי מספר חייל
+    '''
     try:
         soldier_id = int(input("הכנס מספר אישי של החייל: "))
         duties = get_soldier_duties(soldier_id)

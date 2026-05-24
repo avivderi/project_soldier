@@ -15,11 +15,10 @@ def load_data():
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'r', encoding='utf-8') as file:
             loaded_data = json.load(file)
-            soldiers_db.clear()
             soldiers_db.extend(loaded_data)
 
 def save_data():
     """שומרת את הנתונים הנוכחיים לקובץ JSON."""
     with open(DATA_FILE, 'w', encoding='utf-8') as file:
-        json.dump(soldiers_db, file, ensure_ascii=False, indent=4)
+        json.dump(soldiers_db, file)
         
